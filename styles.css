@@ -15,11 +15,15 @@
     height: 100vh;
 } */
 a {
+    text-decoration: none;
     color: white;
     font-size: x-large;
+    position: relative;
+    top: 30%;
 }
 
 div {
+    border-radius: 10vw;
     top: 42.5vh;
     position: absolute;
     left: 49vw;
