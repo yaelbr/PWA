@@ -7,12 +7,14 @@ self.addEventListener('install', event => {
             'index.html',
             'styles.css',
             'script.js',
+            
           ]);
         })
     );
   });
   
   self.addEventListener('fetch', event => {
+    console.log('in');
     event.respondWith(
       caches.match(event.request)
         .then(response => {
