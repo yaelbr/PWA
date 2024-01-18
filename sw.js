@@ -3,10 +3,10 @@ self.addEventListener('install', event => {
       caches.open('your-website-cache')
         .then(cache => {
           return cache.addAll([
-            '/',
-            '/index.html',
-            '/styles.css',
-            '/script.js',
+            '',
+            'index.html',
+            'styles.css',
+            'script.js',
           ]);
         })
     );
