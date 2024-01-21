@@ -7,20 +7,17 @@
     <title>Website Browser</title>
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
     <div>
-        <a href="http://www.medical-rights.co.il">go to site!</a>
-        <!-- <iframe id="browser-container" frameBorder="0"></iframe> -->
+        <a href="http://www.medical-rights.co.il">Go to site!</a>
     </div>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-messaging.js"></script>
+
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
+        import { getMessaging, onMessage } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-messaging.js";
 
         // Your web app's Firebase configuration
         const firebaseConfig = {
@@ -31,26 +28,25 @@
             messagingSenderId: "1019909768765",
             appId: "1:1019909768765:web:6cf28cde31888dd955cc54"
         };
-
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
-        const messaging = firebase.messaging();
+        const messaging = getMessaging(app);
 
-        messaging
-            .requestPermission()
-            .then(() => {
+        Notification.requestPermission().then(permission => {
+            if (permission === "granted") {
                 console.log("Notification permission granted.");
-                // You can handle the logic for sending push notifications here
-            })
-            .catch((error) => {
-                console.log("Notification permission denied: ", error);
-            });
-        messaging.onMessage((payload) => {
+
+                // Additional logic for getting token or handling messages
+            } else {
+                console.log("Notification permission denied.");
+            }
+        });
+
+        onMessage(messaging, (payload) => {
             console.log("Received push notification: ", payload);
             // Handle the incoming push notification here
         });
     </script>
-
 </body>
 
 </html>
