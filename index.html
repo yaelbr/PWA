@@ -35,7 +35,15 @@
         Notification.requestPermission().then(permission => {
             if (permission === "granted") {
                 console.log("Notification permission granted.");
+                const payload = {
+                    data: {
+                        title: "הודעה חדשה!",
+                        text: "יש לך הודעה חדשה באתר שלנו.",
+                        imageUrl: "https://example.com/image.png",
+                    },
+                };
 
+                messaging.sendMessage(payload);
                 // Additional logic for getting token or handling messages
             } else {
                 console.log("Notification permission denied.");
