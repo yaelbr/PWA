@@ -1,4 +1,6 @@
 {
+    "gcm_sender_id": "1019909768765",
+    "gcm_user_visible_only": true,
     "name": "Your Website",
     "short_name": "Website",
     "start_url": "/",
@@ -6,16 +8,15 @@
     "background_color": "#fff",
     "theme_color": "#333",
     "icons": [
-      {
-        "src": "icons/icon.png",
-        "sizes": "192x192",
-        "type": "image/png"
-      },
-      {
-        "src": "icons/icon.png",
-        "sizes": "512x512",
-        "type": "image/png"
-      }
+        {
+            "src": "icons/icon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/icon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
     ]
-  }
-  
+}
