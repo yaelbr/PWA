@@ -14,3 +14,18 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const messaging = firebase.messaging();
+
+messaging
+    .requestPermission()
+    .then(() => {
+        console.log("Notification permission granted.");
+        // You can handle the logic for sending push notifications here
+    })
+    .catch((error) => {
+        console.log("Notification permission denied: ", error);
+    });
+messaging.onMessage((payload) => {
+    console.log("Received push notification: ", payload);
+    // Handle the incoming push notification here
+});
