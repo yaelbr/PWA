@@ -7,6 +7,7 @@ self.addEventListener('install', event => {
           'index.html',
           'styles.css',
           'script.js',
+          'https://www.medical-rights.co.il'
         ]);
       })
   );
