@@ -15,6 +15,7 @@
     height: 100vh;
 } */
 a {
+    font-family: fantasy;
     text-decoration: none;
     color: white;
     font-size: x-large;
