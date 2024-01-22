@@ -13,18 +13,23 @@ self.addEventListener('install', event => {
 });
 
 self.addEventListener('fetch', event => {
-  console.log('reqq', event.request);
   event.respondWith(
     caches.match(event.request)
       .then(response => {
         // If the response is in the cache, return it
-        if (response && response.ok) {
-          console.log('okkk');
-          //return response;
+        if (response) {
+          return response;
         }
-        console.log('not ok');
+
         // If the response is not in the cache, fetch it from the network
-        //return fetch(event.request);
+        return fetch(event.request).then(response => {
+          // Update the cache with the latest version
+          return caches.open(cacheName).then(cache => {
+            cache.put(event.request, response.clone());
+            return response;
+          });
+        });
       })
   );
 });
+
