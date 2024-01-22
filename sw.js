@@ -6,20 +6,22 @@ self.addEventListener('install', event => {
           '',
           'index.html',
           'styles.css',
-          'script.js',
-          'https://www.medical-rights.co.il'
+          'script.js'
         ]);
       })
   );
 });
 
 self.addEventListener('fetch', event => {
-  console.log('in');
   event.respondWith(
     caches.match(event.request)
       .then(response => {
-        console.log('fetch', response);
-        return response || fetch(event.request);
+        // If the response is in the cache, return it
+        if (response && response.ok) {
+          return response;
+        }
+        // If the response is not in the cache, fetch it from the network
+        return fetch(event.request);
       })
   );
 });
