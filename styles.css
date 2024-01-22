@@ -18,19 +18,19 @@ a {
     font-family: fantasy;
     text-decoration: none;
     color: white;
-    font-size: x-large;
+    /* font-size: x-large; */
     position: relative;
-    top: 30%;
+    top: 40%;
 }
 
 div {
-    border-radius: 10vw;
+    border-radius: 30%;
     top: 42.5vh;
     position: absolute;
     left: 40%;
-    background-color: cadetblue;
+    background-color: darkred;
     text-align: center;
     color: white;
     height: 10vh;
-    width: 20vw;
+    width: 20%;
 }
