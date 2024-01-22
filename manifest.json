@@ -1,7 +1,7 @@
 {
     "name": "Website Browser",
     "short_name": "Website",
-    "start_url": "/",
+    "start_url": "",
     "display": "standalone",
     "background_color": "#fff",
     "theme_color": "#333",
