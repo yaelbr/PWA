@@ -19,10 +19,12 @@ self.addEventListener('fetch', event => {
       .then(response => {
         // If the response is in the cache, return it
         if (response && response.ok) {
-          return response;
+          console.log('okkk');
+          //return response;
         }
+        console.log('not ok');
         // If the response is not in the cache, fetch it from the network
-        return fetch(event.request);
+        //return fetch(event.request);
       })
   );
 });
