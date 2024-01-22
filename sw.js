@@ -1,6 +1,7 @@
 self.addEventListener('install', event => {
+  const cacheName = 'your-website-cache-v1'; // Update the cache version
   event.waitUntil(
-    caches.open('your-website-cache')
+    caches.open(cacheName)
       .then(cache => {
         return cache.addAll([
           '',
@@ -9,6 +10,17 @@ self.addEventListener('install', event => {
           'script.js'
         ]);
       })
+  );
+});
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(keys => {
+      return Promise.all(keys.map(key => {
+        if (key !== cacheName) { // Update cacheName to your new version
+          return caches.delete(key);
+        }
+      }));
+    })
   );
 });
 
