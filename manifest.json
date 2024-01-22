@@ -1,6 +1,6 @@
 {
-    "name": "Website Browser",
-    "short_name": "Website",
+    "name": "Livnat Poren",
+    "short_name": "Livnat",
     "start_url": "index.html",
     "display": "standalone",
     "background_color": "#fff",
