@@ -51,3 +51,13 @@ self.addEventListener('fetch', event => {
       })
   );
 });
+self.addEventListener('beforeinstallprompt', (event) => {
+  // Prevent the default behavior
+  event.preventDefault();
+
+  // Stash the event so it can be triggered later
+  deferredPrompt = event;
+
+  // Automatically trigger the install prompt
+  deferredPrompt.prompt();
+});
