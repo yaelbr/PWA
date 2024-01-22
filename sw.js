@@ -63,7 +63,8 @@ window.addEventListener('beforeinstallprompt', (e) => {
   // Optionally, send analytics event that PWA install promo was shown.
   console.log(`'beforeinstallprompt' event was fired.`);
 });
-let buttonInstall = document.getElementsByClassName('button')
+let buttonInstall = document.getElementsByClassName('button');
+console.log('buttonnn');
 buttonInstall.addEventListener('click', async () => {
   // Hide the app provided install promotion
   hideInstallPromotion();
