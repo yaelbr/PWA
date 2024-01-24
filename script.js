@@ -10,12 +10,6 @@ if ('serviceWorker' in navigator) {
             });
     });
 }
-window.addEventListener("load", function () {
-    setTimeout(function () {
-        // This hides the address bar:
-        window.scrollTo(0, 1);
-    }, 0);
-});
 
 // document.addEventListener('DOMContentLoaded', () => {
 //     const iframe = document.getElementById('browser-container');
